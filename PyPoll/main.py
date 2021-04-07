@@ -11,14 +11,14 @@ election_data_csv = os.path.join("Resources","election_data.csv")
 
 # Objective 3: Create the lists to store data. Initialize
 
-count = 0
 candidate_list = []
 unique_candidates = []
 votes_cast = 0
 votes_cast_list = []
-vote_percent = []
-votes_per_candidate = 0
-winner_list = []
+vote_percent = 0
+vote_percent_list = []
+votes_per_candidate = []
+candidate_votes = 0
 
 # Open the election data csv
 with open(election_data_csv, newline="\n") as csv_file:
@@ -36,37 +36,27 @@ with open(election_data_csv, newline="\n") as csv_file:
         candidate_list.append(row[2])
         votes_cast_list.append(row[0])
 
-        #count the number of times each candidate is in the list which will give us the total number of votes per candidate.
-        Khan_votes = int(candidate_list.count("Khan"))
-        Correy_votes = int(candidate_list.count("Correy"))
-        Li_votes = int(candidate_list.count("Li"))
-        O_Tooley_votes = int(candidate_list.count("O'Tooley"))
+        for i in set(candidate_list):
+            unique_candidates.append(i)
+            candidate_votes = candidate_list.count(i)
+            votes_per_candidate.append(candidate_votes)
 
-#get out of the with to perform our calculations.
-Khan_percentage = (Khan_votes/votes_cast) * 100
-Correy_percentage = (Correy_votes/votes_cast) * 100
-Li_percentage = (Li_votes/votes_cast) * 100
-O_Tooley_percentage = (O_Tooley_votes/votes_cast) * 100
+            vote_percent = (candidate_votes/votes_cast)*100
+            vote_percent_list.append(vote_percent)
 
-winner_list.append(Khan_votes)
-winner_list.append(Correy_votes)
-winner_list.append(Li_votes)
-winner_list.append(O_Tooley_votes)
-
-#calculate the winner
-winner = max(winner_list)
+            
+winning_vote_count = max(candidate_votes)
+winning_candidate = unique_candidates[votes_per_candidate.index(winning_vote_count)]
 
 
 print("Election Results")
 print("-------------------------")
 print(f"Total Votes: {votes_cast}")
 print("-------------------------")
-print(f"Khan: {Khan_percentage}% ({Khan_votes})")
-print(f"Correy: {Correy_percentage}% ({Correy_votes})")
-print(f"Li: {Li_percentage}% ({Li_votes})")
-print(f"O'Tooley: {O_Tooley_percentage}% ({O_Tooley_votes})")
+for i in range(len(unique_candidates)):
+            print(f"{unique_candidates[i]}: {vote_percent[i]} % {votes_per_candidate[i]}")
 print("-------------------------")
-print(f"Winner: {winner}")
+print(f"Winner: {winning_candidate}")
 print("-------------------------")
  
 election_results = os.path.join("analysis", "Election_results.txt")
@@ -76,10 +66,8 @@ with open(election_results, "w") as output_file:
     output_file.write("-------------------------\n")
     output_file.write(f"Total Votes: {votes_cast}\n")
     output_file.write("-------------------------\n")
-    output_file.write(f"Khan: {Khan_percentage}% ({Khan_votes})\n")
-    output_file.write(f"Correy: {Correy_percentage}% ({Correy_votes})\n")
-    output_file.write(f"Li: {Li_percentage}% ({Li_votes})\n")
-    output_file.write(f"O'Tooley: {O_Tooley_percentage}% ({O_Tooley_votes})\n")
+    for i in range(len(unique_candidates)):
+            output_file.write(f"{unique_candidates[i]}: {vote_percent[i]} % {votes_per_candidate[i]}\n")
     output_file.write("-------------------------\n")
-    output_file.write(f"Winner: {winner}\n")
+    output_file.write(f"Winner: {winning_candidate}\n")
     output_file.write("-------------------------\n")   
