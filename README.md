@@ -1,14 +1,7 @@
 # Python_challenge
-Repository for python challenge
-
-Before You Begin
-
-
-
 
 
 ## PyBank
-
 
 
 In this challenge, you are tasked with creating a Python script for analyzing the financial records of your company. You will give a set of financial data called budget_data.csv. The dataset is composed of two columns: Date and Profit/Losses. (Thankfully, your company has rather lax standards for accounting so the records are simple.)
@@ -34,15 +27,12 @@ In this challenge, you are tasked with helping a small, rural town modernize its
 
 You will be give a set of poll data called election_data.csv. The dataset is composed of three columns: Voter ID, County, and Candidate. Your task is to create a Python script that analyzes the votes and calculates each of the following:
 
-The total number of votes cast
+-The total number of votes cast
 
-A complete list of candidates who received votes
+-A complete list of candidates who received votes
 
+-The percentage of votes each candidate won
 
-The percentage of votes each candidate won
+-The total number of votes each candidate won
 
-
-The total number of votes each candidate won
-
-
-The winner of the election based on popular vote.
+-The winner of the election based on popular vote.
