@@ -4,35 +4,29 @@
 ## PyBank
 
 
-In this challenge, you are tasked with creating a Python script for analyzing the financial records of your company. You will give a set of financial data called budget_data.csv. The dataset is composed of two columns: Date and Profit/Losses. (Thankfully, your company has rather lax standards for accounting so the records are simple.)
+The [PyBank Python Script](./PyBank/main.py) contains the code for analyzing the financial records of a company from the [Budget Data CSV](./PyBank/budget_data.csv) which contains two columns: Date and Profit/Losses. The Python script above analyzes the CSV and calculate each of the following:
 
+* The total number of months included in the dataset
 
-Your task is to create a Python script that analyzes the records to calculate each of the following:
+* The net total amount of "Profit/Losses" over the entire period
 
--The total number of months included in the dataset
+* Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes
 
--The net total amount of "Profit/Losses" over the entire period
+* The greatest increase in profits (date and amount) over the entire period
 
--Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes
-
--The greatest increase in profits (date and amount) over the entire period
-
--The greatest decrease in losses (date and amount) over the entire period
+* The greatest decrease in losses (date and amount) over the entire period
 
 
 ## PyPoll
 
+The [PyPoll Python Script](./PyPoll/main.py) contains the code to automate a vote counting process based on the results in the [Election Result Data CSV](./PyPoll/election_data.csv). This dataset is composed of three columns: Voter ID, County, and Candidate. The Python script will analyze the votes and calculates each of the following:
 
-In this challenge, you are tasked with helping a small, rural town modernize its vote counting process.
+* The total number of votes cast
 
-You will be give a set of poll data called election_data.csv. The dataset is composed of three columns: Voter ID, County, and Candidate. Your task is to create a Python script that analyzes the votes and calculates each of the following:
+* A complete list of candidates who received votes
 
--The total number of votes cast
+* The percentage of votes each candidate won
 
--A complete list of candidates who received votes
+* The total number of votes each candidate won
 
--The percentage of votes each candidate won
-
--The total number of votes each candidate won
-
--The winner of the election based on popular vote.
+* The winner of the election based on popular vote.
